@@ -1,48 +1,62 @@
 import React, { useState } from 'react'
 import './App.css';
 
-function Counter() {
-  const [count, setCount] = useState(0)
-
-  const increase = () => {
-    setCount(count + 1)
+class Counter extends React.Component {
+  state = {
+    count: 0
   }
 
-  const decrease = () => {
-    setCount(count - 1)
+  static increase = () => {
+    this.setState((state) => ({
+      count: state.count + 1
+    }))
   }
 
-  return (
-    React.createElement('div', null, 
-      React.createElement('div', null, `${count}`),
+  static decrease = () => {
+    this.setState((state) => ({
+      count: state.count - 1
+    }))
+  }
+
+  render() {
+    return (
       React.createElement('div', null, 
-        React.createElement('button', {onClick: increase}, '+'),
-        React.createElement('button', {onClick: decrease}, '-')
+        React.createElement('div', null, `${this.state.count}`),
+        React.createElement('div', null, 
+          React.createElement('button', {onClick: this.increase}, '+'),
+          React.createElement('button', {onClick: this.decrease}, '-')
+        )
       )
     )
-  )
+  }
 }
 
 class SearchForm extends React.PureComponent {
+  alertText = 'Nothing found :('
+
   render() {
     return (
-      <div>
-        <Input />
-        <SearchButton />
-      </div>
+      <>
+        <input />
+        <SearchButton alertText={this.alertText} />
+      </>
     )
   }
-    
 }
 
 class SearchButton extends React.Component {
-  onClick = () => {
-    alert('Nothing found :(')
+  constructor(props) {
+    super(props)
+    this.alertText = this.props.alertText
+  }
+
+  #onClick = () => {
+    alert(this.alertText)
   }
 
   render () {
     return (
-      <button onClick={this.onClick}> 
+      <button onClick={this.#onClick}> 
         Search
       </button>
     )
@@ -50,26 +64,24 @@ class SearchButton extends React.Component {
   }
 }
 
-const Input = () => (
-  <input />
-)
+const ENUM_TITLES = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime']
 
 const GenreToggle = () => {
-  const handleClick = (e) => {
-    for (let i = 0; i < e.target.parentElement.children.length; i++) {
-      e.target.parentElement.children[i].style.background = ''
-    }
+  const [activeTab, setActiveTab] = useState('')
 
-    e.target.style.background = 'red'
+  const handleClick = (e) => {
+    setActiveTab(e.target.outerText)
   }
+
+  const getStylesForActiveTab = (title) => (
+    title === activeTab ? { background: 'red' } : null
+  )
 
   return (
     <div onClick={handleClick}>
-      <span>All</span>
-      <span>Documentary</span>
-      <span>Comedy</span>
-      <span>Horror</span>
-      <span>Crime</span>
+      {ENUM_TITLES.map((title) => (
+        <span key={title} style={getStylesForActiveTab(title)}>{title}</span>
+      ))}
     </div>
   )
 }
@@ -77,7 +89,7 @@ const GenreToggle = () => {
 function App() {
   return (
     <div className="App">
-      <h1>HELLO WORD!</h1>
+      <h1>HELLO WORLD!</h1>
       <Counter />
       <SearchForm />
       <GenreToggle />
