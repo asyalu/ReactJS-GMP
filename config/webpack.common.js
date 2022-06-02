@@ -22,11 +22,11 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
       }
-    ],
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "../src/application/index.html"),
     }),
-  ],
+  ]
 }
