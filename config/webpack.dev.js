@@ -12,4 +12,8 @@ module.exports = merge(common, {
       },
     },
   },
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> b784ead (completed task 3)
