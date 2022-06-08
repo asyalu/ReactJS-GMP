@@ -29,4 +29,8 @@ module.exports = {
       template: path.join(__dirname, "../src/application/index.html"),
     }),
   ],
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b784ead (completed task 3)
