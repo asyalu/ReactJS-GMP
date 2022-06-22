@@ -1,12 +1,21 @@
-import PropTypes from 'prop-types'
-import { InputStyled } from './Input.styles'
+import {
+  InputStyled, InputNumberStyled, InputCheckboxStyled
+} from './Input.styles'
 
-const Input = ({ placeholder }) => (
-  <InputStyled placeholder={placeholder} />
+const Input = ({ ...props }) => (
+  <InputStyled {...props} />
 )
 
-Input.propTypes = {
-  placeholder: PropTypes.string
-}
+Input.Number = ({ ...props }) => (
+  <InputNumberStyled {...props} />
+)
+
+Input.Date = ({ ...props }) => (
+  <Input {...props} />
+)
+
+Input.Checkbox = ({ ...props }) => (
+  <InputCheckboxStyled {...props} type="checkbox" />
+)
 
 export { Input }

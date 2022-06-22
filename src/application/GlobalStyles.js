@@ -5,7 +5,10 @@ const COLORS = {
   primary2: '#424242',
   primary3: '#232323',
   primary4: '#555555',
-  primary5: '#ffffff'
+  primary5: '#ffffff',
+  primary6: 'rgba(50, 50, 50, 0.8)',
+  contextMenu: '#2A202D',
+  transparent: 'transparent'
 }
 
 const GlobalStyles = createGlobalStyle`

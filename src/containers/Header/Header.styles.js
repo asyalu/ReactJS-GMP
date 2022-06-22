@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { COLORS } from '../../application/GlobalStyles'
-import headerBackground from '../../assets/images/headerBackground.jpg'
+import bgimage from '../../assets/images/bgimage.png'
 
 const HeaderWrapper = styled.header`
   width: 100%;
@@ -11,14 +11,18 @@ const HeaderWrapper = styled.header`
   align-items: center;
   background-color: ${COLORS.primary3};
   overflow: hidden;
+  z-index: 1;
 `
 
 const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url(${headerBackground});
+  background-image: url(${bgimage});
+  background-repeat: no-repeat;
+  background-size: cover;
   filter: brightness(0.3) blur(3px);
+  z-index: -1;
 `
 
 const LogoAddMovieWrapper = styled.div`
@@ -26,7 +30,6 @@ const LogoAddMovieWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 20px;
-  z-index: 1;
 `
 
 const InputClarify = styled.h1`
@@ -37,14 +40,12 @@ const InputClarify = styled.h1`
   line-height: 49px;
   font-size: 40px;
   letter-spacing: 1px;
-  z-index: 1;
 `
 
 const SearchMovieWrapper = styled.div`
   width: 75%;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
 `
 
 export {

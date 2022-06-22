@@ -11,6 +11,6 @@ const AddMovieButtonStyled = styled(Button)`
   background-color: rgba(96, 96, 96, 0.68);
   border: none;
   border-radius: 4px;
-
 `
+
 export { AddMovieButtonStyled }
