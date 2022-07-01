@@ -1,6 +1,9 @@
 import { forwardRef } from 'react'
 import {
-  ButtonStyled, OptionButton, ResetButton
+  ButtonStyled,
+  OptionButton,
+  ResetButton,
+  IconButton
 } from './Button.styled'
 
 const Button = forwardRef((props, ref) => (
@@ -13,6 +16,10 @@ Button.Option = forwardRef((props, ref) => (
 
 Button.Reset = forwardRef((props, ref) => (
   <ResetButton ref={ref} {...props} />
+))
+
+Button.Icon = forwardRef((props, ref) => (
+  <IconButton ref={ref} {...props} />
 ))
 
 export { Button }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { COLORS } from '../../application/GlobalStyles'
 
 const ContextMenuWrapper = styled.div`
-
+  visibility: ${(props) => (props.menuVisibl ? 'visible' : 'hidden')};
 `
 
 const ContextMenuStyledButton = styled.div`

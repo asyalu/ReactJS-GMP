@@ -10,8 +10,8 @@ import {
   MovieYear
 } from './MovieCover.styles'
 
-const MovieCover = ({ title, genre, year, image }) => {
-  const [menuVisibl, setMenuVisibl] = useState(false);
+const MovieCover = ({ title, genre, year, image, onClick }) => {
+  const [menuVisibl, setMenuVisibl] = useState(false)
 
   const showButton = () => setMenuVisibl(true)
   const hideButton = () => setMenuVisibl(false)
@@ -21,8 +21,8 @@ const MovieCover = ({ title, genre, year, image }) => {
       onMouseOver={showButton}
       onMouseLeave={hideButton}
     >
-      {menuVisibl && <ContextMenuButton />}
-      <Poster src={image} alt={title} />
+      <ContextMenuButton menuVisibl={menuVisibl} setMenuVisibl={setMenuVisibl} />
+      <Poster src={image} alt={title} onClick={onClick} />
       <MovieDescription>
         <MovieTitle>{title}</MovieTitle>
         <MovieYear>{year}</MovieYear>
@@ -36,7 +36,8 @@ MovieCover.propTypes = {
   title: PropTypes.string,
   genre: PropTypes.string,
   year: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export { MovieCover }

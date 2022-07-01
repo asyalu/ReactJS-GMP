@@ -23,6 +23,7 @@ const ModalStyled = styled.form`
   position: relative;
   background-color: ${COLORS.primary3};
   padding: 30px 60px;
+  cursor: default;
 `
 
 const ModalTitle = styled.h2`

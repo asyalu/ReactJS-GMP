@@ -13,25 +13,33 @@ const Modal = (
     cancelButton = null,
     onClose
   }
-) => (
-  <ModalWrapper>
-    <ModalStyled>
-      <CloseModalButton bg={COLORS.transparent} onClick={onClose}>
-        <img src={close} alt="close" />
-      </CloseModalButton>
-      <ModalTitle>
-        {modalTitle}
-      </ModalTitle>
-      {content}
-      {okButton && (
-        <ButtonsWrapper>
-          {cancelButton}
-          {okButton}
-        </ButtonsWrapper>
-      )}
-    </ModalStyled>
-  </ModalWrapper>
-)
+) => {
+  const closeHandler = (e) => {
+    if (e.target.classList[0] === ModalWrapper.styledComponentId) {
+      onClose()
+    }
+  }
+
+  return (
+    <ModalWrapper onClick={closeHandler}>
+      <ModalStyled>
+        <CloseModalButton bg={COLORS.transparent} onClick={onClose}>
+          <img src={close} alt="close" />
+        </CloseModalButton>
+        <ModalTitle>
+          {modalTitle}
+        </ModalTitle>
+        {content}
+        {okButton && (
+          <ButtonsWrapper>
+            {cancelButton}
+            {okButton}
+          </ButtonsWrapper>
+        )}
+      </ModalStyled>
+    </ModalWrapper>
+  )
+}
 
 Modal.propTypes = {
   modalTitle: PropTypes.string.isRequired,

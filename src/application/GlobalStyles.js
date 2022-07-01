@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import '../assets/fonts/fonts.css'
 
 const COLORS = {
   primary1: '#f65261',

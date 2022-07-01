@@ -22,6 +22,7 @@ const SelectWrapper = styled.div`
 const Select = styled.select`
   width: 100%;
   height: 100%;
+  padding: 0 15px;
   background-color: ${COLORS.primary6};
   color: ${COLORS.primary5};
   border: none;
@@ -33,6 +34,7 @@ const Options = styled.div`
   position: absolute;
   display: ${(props) => (props.expanded ? 'flex' : 'none')};
   flex-direction: column;
+  padding: 10px;
   background-color: rgba(35, 35, 35, 0.918051);
   top: 80px;
   z-index: 1;

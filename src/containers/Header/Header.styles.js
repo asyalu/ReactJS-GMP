@@ -4,14 +4,33 @@ import bgimage from '../../assets/images/bgimage.png'
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  height: 50vh;
-  position: relative;
+  height: ${(props) => (props.view ? '630px' : '50vh')};
   display: flex;
+  position: relative;
+  overflow: hidden;
+  transition: 2s;
+`
+
+const SearchBlock = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   background-color: ${COLORS.primary3};
-  overflow: hidden;
+  opacity: ${(props) => (props.view ? '0' : '1')};
+  transition: opacity 0.5s ease-in;
   z-index: 1;
+`
+
+const MovieDescription = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 0.5s ease-in;
+  opacity: ${(props) => (props.view ? '1' : '0')};
+  z-index: ${(props) => (props.view ? '1' : '0')};
 `
 
 const BackgroundImage = styled.div`
@@ -49,5 +68,11 @@ const SearchMovieWrapper = styled.div`
 `
 
 export {
-  HeaderWrapper, BackgroundImage, LogoAddMovieWrapper, InputClarify, SearchMovieWrapper
+  HeaderWrapper,
+  BackgroundImage,
+  LogoAddMovieWrapper,
+  InputClarify,
+  SearchMovieWrapper,
+  SearchBlock,
+  MovieDescription
 }

@@ -22,18 +22,29 @@ const OptionButton = styled.button`
   margin: 5px 0;
   border: none;
   cursor: pointer;
+  color: ${COLORS.primary5};
 
   &:hover {
-    background: ${COLORS.primary1}
+    background-color: ${COLORS.primary1}
   }
 `
 
 const ResetButton = styled(ButtonStyled)`
   border: 1px solid ${COLORS.primary1};
-  background: ${COLORS.transparent};
+  background-color: ${COLORS.transparent};
   margin-right: 25px;
 `
 
+const IconButton = styled(ButtonStyled)`
+  width: auto;
+  border: none;
+  background-color: ${COLORS.transparent};
+  cursor: pointer;
+`
+
 export {
-  ButtonStyled, OptionButton, ResetButton
+  ButtonStyled,
+  OptionButton,
+  ResetButton,
+  IconButton
 }

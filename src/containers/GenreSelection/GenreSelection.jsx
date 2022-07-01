@@ -15,7 +15,12 @@ const GenreSelection = () => {
   return (
     <StyledGenreSelection>
       {Object.values(GENRES).map((genre) => (
-        <Genre onClick={() => setActive(genre)} active={active} genre={genre} key={genre}>
+        <Genre
+          onClick={() => setActive(genre)}
+          active={active}
+          genre={genre}
+          key={genre}
+        >
           {genre}
         </Genre>
       ))}

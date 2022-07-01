@@ -6,6 +6,7 @@ const MovieCoverStyled = styled.div`
   width: 330px;
   height: 500px;
   margin-bottom: 30px;
+  cursor: pointer;
 `
 
 const Poster = styled.img`

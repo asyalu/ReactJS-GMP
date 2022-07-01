@@ -2,7 +2,12 @@ export const mockData = [{
   title: 'Pupl Fiction',
   genre: 'Action & Adventure',
   year: '2004',
-  image: 'https://cdn.ananasposter.ru/image/cache/catalog/poster/film/99/1506-1000x830.jpg'
+  image: 'https://cdn.ananasposter.ru/image/cache/catalog/poster/film/99/1506-1000x830.jpg',
+  overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  runtime: '1:20',
+  rating: 9.5,
+  url: 'https://www.facebook.com/',
+  date: '2004-18-01'
 },
 {
   title: 'Bohemian Rhapsody',

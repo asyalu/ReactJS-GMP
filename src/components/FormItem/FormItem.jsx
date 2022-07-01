@@ -4,8 +4,16 @@ import { Input } from '../Input/Input'
 import { Label } from '../Label/Label'
 import { TextArea } from '../TextArea/TextArea'
 import {
-  StyledFormItem, StyledTextAreaFormItem, Select, Options, OverSelect, SelectWrapper
+  StyledFormItem,
+  StyledTextAreaFormItem,
+  Select,
+  Options,
+  OverSelect,
+  SelectWrapper
 } from './FormItem.styles'
+
+const MIN_DATE = '1900-01-01'
+const MAX_DATE = '2023-01-01'
 
 const FormItemType = {
   number: 'number',
@@ -19,6 +27,9 @@ const FormItemType = {
 const FormItem = ({ type, label, ...restProps }) => {
   const [expanded, setExpanded] = useState(false)
   const [selectOptions, setSelectOptions] = useState([])
+  const [value, setValue] = useState(restProps.value || null)
+
+  const handleChangeInput = (e) => setValue(e.target.value)
 
   const handleSelectEvent = (e, opt) => (
     e.target.checked
@@ -31,26 +42,43 @@ const FormItem = ({ type, label, ...restProps }) => {
       return (
         <StyledFormItem>
           <Label label={label} />
-          <Input.Date type={type} {...restProps} id={label} />
+          <Input.Date
+            type={type}
+            min={MIN_DATE}
+            max={MAX_DATE}
+            id={label}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </StyledFormItem>
       )
     case (FormItemType.url):
       return (
         <StyledFormItem>
           <Label label={label} />
-          <Input type={type} {...restProps} id={label} />
+          <Input
+            type={type}
+            id={label}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </StyledFormItem>
       )
     case (FormItemType.number):
       return (
         <StyledFormItem>
           <Label label={label} />
-          <Input.Number type={type} {...restProps} id={label} />
+          <Input.Number
+            type={type}
+            id={label}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </StyledFormItem>
       )
     case (FormItemType.select):
       return (
-        <StyledFormItem>
+        <StyledFormItem onMouseLeave={() => setExpanded(false)}>
           <Label label={label} />
           <SelectWrapper onClick={() => setExpanded(!expanded)}>
             <Select>
@@ -66,7 +94,7 @@ const FormItem = ({ type, label, ...restProps }) => {
                   </option>
                 )}
             </Select>
-            <OverSelect className="overSelect" />
+            <OverSelect />
           </SelectWrapper>
           <Options expanded={expanded}>
             {restProps.options.map((opt) => (
@@ -87,7 +115,8 @@ const FormItem = ({ type, label, ...restProps }) => {
         <StyledTextAreaFormItem>
           <Label label={label} />
           <TextArea
-            {...restProps}
+            value={value}
+            onChange={handleChangeInput}
           />
         </StyledTextAreaFormItem>
       )
@@ -95,7 +124,11 @@ const FormItem = ({ type, label, ...restProps }) => {
       return (
         <StyledFormItem>
           <Label label={label} />
-          <Input {...restProps} />
+          <Input
+            {...restProps}
+            value={value}
+            onChange={handleChangeInput}
+          />
         </StyledFormItem>
       )
   }
