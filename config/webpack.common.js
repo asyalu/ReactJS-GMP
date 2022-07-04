@@ -20,13 +20,17 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-        type: 'asset/resource',
-      }
-    ],
+        type: "asset/resource",
+      },
+      {
+        test: /\.css$/,
+        use: [ "style-loader", "css-loader" ]
+      },
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "../src/application/index.html"),
     }),
-  ],
+  ]
 }
